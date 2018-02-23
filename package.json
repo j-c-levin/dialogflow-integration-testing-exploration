@@ -1,0 +1,20 @@
+{
+  "name": "dialogflow-integration-testing-exploration",
+  "version": "1.0.0",
+  "description": "Exploring the possibility of automated integration testing on Dialogflow using CI tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-c-levin/dialogflow-integration-testing-exploration.git"
+  },
+  "keywords": [],
+  "author": "“holition” <“admin@holition.com”> (“http://www.holition.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/j-c-levin/dialogflow-integration-testing-exploration/issues"
+  },
+  "homepage": "https://github.com/j-c-levin/dialogflow-integration-testing-exploration#readme"
+}
