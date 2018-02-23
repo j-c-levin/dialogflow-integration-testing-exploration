@@ -20,6 +20,7 @@ Exploring the possibility of automated integration testing on Dialogflow using C
 - https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent/train
 4) Run integration tests on the testing agent
 5) Destroy the testing agent
+- For the reasons of step 1), also not possible right now.
 
 ## General Setup
 
