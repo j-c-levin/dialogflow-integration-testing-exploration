@@ -1,3 +1,18 @@
 # dialogflow-integration-testing-exploration
 Exploring the possibility of automated integration testing on Dialogflow using CI tools
 
+## Todo
+
+1) Create a dialogflow agent ('testing agent')
+- Does not appear automatable, so for the moment, having only one build running concurrently appears to be an unavoidable drawback of the system.
+2) Export the zip of the development agent
+- https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent/export
+3) Upload development agent to the testing agent
+- https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent/restore
+- https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent/train
+4) Run integration tests on the testing agent
+5) Destroy the testing agent
+
+## General Setup
+
+- https://dialogflow.com/docs/reference/v2-auth-setup
