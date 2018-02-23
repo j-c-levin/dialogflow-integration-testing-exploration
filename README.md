@@ -1,9 +1,13 @@
 # dialogflow-integration-testing-exploration
 Exploring the possibility of automated integration testing on Dialogflow using CI tools
 
-[![CircleCI](https://circleci.com/gh/j-c-levin/dialogflow-integration-testing-exploration/tree/master.svg?style=svg)](https://circleci.com/gh/j-c-levin/dialogflow-integration-testing-exploration/tree/master)
 
-[![CircleCI](https://circleci.com/gh/j-c-levin/dialogflow-integration-testing-exploration/tree/develop.svg?style=svg)](https://circleci.com/gh/j-c-levin/dialogflow-integration-testing-exploration/tree/develop)
+
+
+
+| Master  | Develop   |
+|:-:|:-:|
+|  [![CircleCI](https://circleci.com/gh/j-c-levin/dialogflow-integration-testing-exploration/tree/master.svg?style=svg)](https://circleci.com/gh/j-c-levin/dialogflow-integration-testing-exploration/tree/master) | [![CircleCI](https://circleci.com/gh/j-c-levin/dialogflow-integration-testing-exploration/tree/develop.svg?style=svg)](https://circleci.com/gh/j-c-levin/dialogflow-integration-testing-exploration/tree/develop)  |
 
 ## Todo
 
