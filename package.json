@@ -4,7 +4,7 @@
   "description": "Exploring the possibility of automated integration testing on Dialogflow using CI tools",
   "main": "index.js",
   "scripts": {
-    "test": "exit 0"
+    "test": "mocha dist/unit_tests/"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/j-c-levin/dialogflow-integration-testing-exploration/issues"
   },
-  "homepage": "https://github.com/j-c-levin/dialogflow-integration-testing-exploration#readme"
+  "homepage": "https://github.com/j-c-levin/dialogflow-integration-testing-exploration#readme",
+  "devDependencies": {
+    "actions-on-google": "^1.8.2",
+    "chai": "^4.1.2",
+    "mocha": "^5.0.1"
+  }
 }
