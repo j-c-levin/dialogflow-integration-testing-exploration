@@ -2,6 +2,8 @@ import { Conversation } from './conversation/index';
 import { describe, it, beforeEach } from 'mocha';
 import { expect } from 'chai';
 import { Attempt } from './conversation/begin_game/attempt';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 async function test() {
     describe('critical path: playing the game', function () {

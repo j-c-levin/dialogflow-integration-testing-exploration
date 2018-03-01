@@ -9,7 +9,7 @@ export class Conversation {
     start(): Promise<BeginGame> {
         return new Promise((resolve, reject) => {
             post(`https://api.dialogflow.com/v1/query?v=20170712`)
-                .set('Authorization', 'Bearer 0f9d4beed3fc4e95b627d7a1270e1685')
+                .set('Authorization', `Bearer ${process.env.BEARER_TOKEN}`)
                 .set('Content-Type', 'application/json')
                 .send({
                     "contexts": [],

@@ -11,6 +11,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const index_1 = require("./conversation/index");
 const mocha_1 = require("mocha");
 const chai_1 = require("chai");
+const dotenv = require("dotenv");
+dotenv.config();
 function test() {
     return __awaiter(this, void 0, void 0, function* () {
         mocha_1.describe('critical path: playing the game', function () {
