@@ -1,4 +1,3 @@
-import { BeginGame } from './conversation/begin_game/index';
 import { Conversation } from './conversation/index';
 import { describe, it, beforeEach } from 'mocha';
 import { expect } from 'chai';
@@ -6,22 +5,22 @@ import { Attempt } from './conversation/begin_game/attempt';
 
 async function test() {
     describe('critical path: playing the game', function () {
-        let conversation: Conversation, start: BeginGame, game: Attempt;
+        let conversation: Conversation, attempt: Attempt;
         beforeEach(async () => {
             conversation = new Conversation();
-            start = await conversation.start();
-            game = await start.begin(conversation);
+            const game = await conversation.start();
+            attempt = await game.begin(conversation);
         });
         it('finds the right answer', async function () {
-            const rightAnswer = await game.getAnswer(conversation);
+            const rightAnswer = await attempt.getAnswer();
             expect(rightAnswer).to.not.be.undefined;
         });
         it('says higher', async function () {
-            const wrongAnswer = await game.makeGuess({ guess: -1, conversation });
+            const wrongAnswer = await attempt.makeGuess(-1);
             expect(wrongAnswer.result.fulfillment.speech).to.equal('Higher!');
         });
         it('says lower', async function () {
-            const wrongAnswer = await game.makeGuess({ guess: 6, conversation });
+            const wrongAnswer = await attempt.makeGuess(6);
             expect(wrongAnswer.result.fulfillment.speech).to.equal('Lower!');
         });
     });

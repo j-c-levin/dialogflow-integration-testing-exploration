@@ -10,7 +10,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const superagent_1 = require("superagent");
 class Attempt {
-    makeGuess(details) {
+    constructor(conversation) {
+        this.sessionId = conversation.getSessionId();
+    }
+    makeGuess(guess) {
         return new Promise((resolve, reject) => {
             superagent_1.post(`https://api.dialogflow.com/v1/query?v=20170712`)
                 .set('Authorization', 'Bearer 0f9d4beed3fc4e95b627d7a1270e1685')
@@ -18,8 +21,8 @@ class Attempt {
                 .send({
                 "contexts": [],
                 "lang": "en",
-                "query": `${details.guess}`,
-                "sessionId": `${details.conversation.getSessionId()}`,
+                "query": `${guess}`,
+                "sessionId": `${this.sessionId}`,
                 "timezone": "America/New_York"
             })
                 .end((err, res) => {
@@ -30,10 +33,10 @@ class Attempt {
             });
         });
     }
-    getAnswer(conversation) {
+    getAnswer() {
         return __awaiter(this, void 0, void 0, function* () {
             for (let guess = 0; guess < 5; guess++) {
-                const result = yield this.makeGuess({ guess, conversation });
+                const result = yield this.makeGuess(guess);
                 if (result.result.fulfillment.speech === `You got it!  Do you want to play again?`) {
                     return guess;
                 }

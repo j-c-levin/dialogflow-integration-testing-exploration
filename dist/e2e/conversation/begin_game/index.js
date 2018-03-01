@@ -19,7 +19,7 @@ class BeginGame {
                 if (err) {
                     reject(err);
                 }
-                resolve(new index_1.Attempt());
+                resolve(new index_1.Attempt(conversation));
             });
         });
     }

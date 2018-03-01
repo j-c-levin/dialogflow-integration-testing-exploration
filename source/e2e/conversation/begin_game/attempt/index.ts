@@ -1,13 +1,12 @@
 import { Conversation } from './../../index';
 import { post } from "superagent";
 
-export interface GuessAttempt {
-    guess: Number;
-    conversation: Conversation;
-}
-
 export class Attempt {
-    makeGuess(details: GuessAttempt): Promise<any> {
+    private sessionId: Number;
+    constructor(conversation: Conversation) {
+        this.sessionId = conversation.getSessionId();
+    }
+    makeGuess(guess: Number): Promise<any> {
         return new Promise((resolve, reject) => {
             post(`https://api.dialogflow.com/v1/query?v=20170712`)
                 .set('Authorization', 'Bearer 0f9d4beed3fc4e95b627d7a1270e1685')
@@ -15,8 +14,8 @@ export class Attempt {
                 .send({
                     "contexts": [],
                     "lang": "en",
-                    "query": `${details.guess}`,
-                    "sessionId": `${details.conversation.getSessionId()}`,
+                    "query": `${guess}`,
+                    "sessionId": `${this.sessionId}`,
                     "timezone": "America/New_York"
                 })
                 .end((err, res) => {
@@ -27,9 +26,9 @@ export class Attempt {
                 });
         });
     }
-    async getAnswer(conversation: Conversation): Promise<any> {
+    async getAnswer(): Promise<any> {
         for (let guess = 0; guess < 5; guess++) {
-            const result = await this.makeGuess({ guess, conversation });
+            const result = await this.makeGuess(guess);
             if (result.result.fulfillment.speech === `You got it!  Do you want to play again?`) {
                 return guess;
             }

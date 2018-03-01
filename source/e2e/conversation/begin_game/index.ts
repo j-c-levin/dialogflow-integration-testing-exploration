@@ -19,7 +19,7 @@ export class BeginGame {
                     if (err) {
                         reject(err);
                     }
-                    resolve(new Attempt());
+                    resolve(new Attempt(conversation));
                 });
         });
     }

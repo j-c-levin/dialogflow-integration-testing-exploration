@@ -14,27 +14,27 @@ const chai_1 = require("chai");
 function test() {
     return __awaiter(this, void 0, void 0, function* () {
         mocha_1.describe('critical path: playing the game', function () {
-            let conversation, start, game;
+            let conversation, attempt;
             mocha_1.beforeEach(() => __awaiter(this, void 0, void 0, function* () {
                 conversation = new index_1.Conversation();
-                start = yield conversation.start();
-                game = yield start.begin(conversation);
+                const game = yield conversation.start();
+                attempt = yield game.begin(conversation);
             }));
             mocha_1.it('finds the right answer', function () {
                 return __awaiter(this, void 0, void 0, function* () {
-                    const rightAnswer = yield game.getAnswer(conversation);
+                    const rightAnswer = yield attempt.getAnswer();
                     chai_1.expect(rightAnswer).to.not.be.undefined;
                 });
             });
             mocha_1.it('says higher', function () {
                 return __awaiter(this, void 0, void 0, function* () {
-                    const wrongAnswer = yield game.makeGuess({ guess: -1, conversation });
+                    const wrongAnswer = yield attempt.makeGuess(-1);
                     chai_1.expect(wrongAnswer.result.fulfillment.speech).to.equal('Higher!');
                 });
             });
             mocha_1.it('says lower', function () {
                 return __awaiter(this, void 0, void 0, function* () {
-                    const wrongAnswer = yield game.makeGuess({ guess: 6, conversation });
+                    const wrongAnswer = yield attempt.makeGuess(6);
                     chai_1.expect(wrongAnswer.result.fulfillment.speech).to.equal('Lower!');
                 });
             });
