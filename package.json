@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon --inspect=5858 dist/index.js",
     "ngrok": "ngrok.exe http 5000",
-    "test": "mocha dist/**/*.test.js --recursive"
+    "test": "mocha dist/**/*.test.js --recursive",
+    "integration-test": "mocha dist/**/*.e2e.js --recursive"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,9 @@
   },
   "dependencies": {
     "@types/node": "^9.4.6",
+    "@types/superagent": "^3.5.7",
     "body-parser": "^1.18.2",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "superagent": "^3.8.2"
   }
 }
