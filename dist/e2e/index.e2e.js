@@ -14,28 +14,26 @@ const chai_1 = require("chai");
 function test() {
     return __awaiter(this, void 0, void 0, function* () {
         mocha_1.describe('critical path: playing the game', function () {
-            let conversation, start;
+            let conversation, start, game;
             mocha_1.beforeEach(() => __awaiter(this, void 0, void 0, function* () {
                 conversation = new index_1.Conversation();
                 start = yield conversation.start();
+                game = yield start.begin(conversation);
             }));
             mocha_1.it('finds the right answer', function () {
                 return __awaiter(this, void 0, void 0, function* () {
-                    const game = yield start.begin(conversation);
                     const rightAnswer = yield game.getAnswer(conversation);
                     chai_1.expect(rightAnswer).to.not.be.undefined;
                 });
             });
             mocha_1.it('says higher', function () {
                 return __awaiter(this, void 0, void 0, function* () {
-                    const game = yield start.begin(conversation);
                     const wrongAnswer = yield game.makeGuess({ guess: -1, conversation });
                     chai_1.expect(wrongAnswer.result.fulfillment.speech).to.equal('Higher!');
                 });
             });
             mocha_1.it('says lower', function () {
                 return __awaiter(this, void 0, void 0, function* () {
-                    const game = yield start.begin(conversation);
                     const wrongAnswer = yield game.makeGuess({ guess: 6, conversation });
                     chai_1.expect(wrongAnswer.result.fulfillment.speech).to.equal('Lower!');
                 });
