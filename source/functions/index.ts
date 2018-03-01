@@ -19,7 +19,7 @@ export const guess = (app: any): void => {
         const message = `You got it!  Do you want to play again?`;
         app.setContext('game', 0);
         app.setContext('Game-followup', 0);
-        app.setContext('greeting', 5);
+        app.setContext('greeting', 5); 
         app.ask(message);
     } else {
         const message = (Number(guess) > answer) ? `Lower!` : `Higher!`;
