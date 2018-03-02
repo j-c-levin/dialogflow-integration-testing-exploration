@@ -1,6 +1,6 @@
 import { dialogApp } from "./handers";
+import * as express from 'express';
 
-const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
@@ -10,6 +10,10 @@ app.set('port', (process.env.PORT || 5000));
 
 app.post('/', function (request, response) {
     dialogApp(request, response);
+});
+
+app.get('/alive', function (_, response) {
+    response.send("alive");
 });
 
 app.listen(app.get('port'), function () {

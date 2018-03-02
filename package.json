@@ -7,7 +7,8 @@
     "start": "nodemon --inspect=5858 dist/index.js",
     "ngrok": "ngrok.exe http 5000",
     "test": "mocha dist/**/*.test.js --recursive",
-    "integration-test": "mocha dist/**/*.e2e.js --recursive"
+    "integration-test": "mocha dist/**/*.e2e.js --recursive",
+    "wait-for-heroku": "node dist/e2e/wait_for_heroku.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/j-c-levin/dialogflow-integration-testing-exploration#readme",
   "devDependencies": {
+    "@types/express": "^4.11.1",
     "actions-on-google": "^1.8.2",
     "chai": "^4.1.2",
     "dotenv": "^5.0.1",

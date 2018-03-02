@@ -47,7 +47,9 @@
                 "--recursive",
                 "dist/**/*.e2e.js",
                 "--slow",
-                "3000"
+                "3000",
+                "--timeout",
+                "10000"
             ], //you can specify paths to specific tests here
             "cwd": "${workspaceRoot}",
             "runtimeExecutable": null,
