@@ -7,7 +7,7 @@ function begin() {
     setTimeout(() => {
         console.log('Begining to ping');
         waitForHeroku();
-    });
+    }, 10000);
 }
 
 async function waitForHeroku() {
