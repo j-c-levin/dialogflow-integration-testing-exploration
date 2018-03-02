@@ -13,7 +13,7 @@ app.post('/', function (request, response) {
 });
 
 app.get('/alive', function (_, response) {
-    response.send("I'm still alive");
+    response.send("alive");
 });
 
 app.listen(app.get('port'), function () {

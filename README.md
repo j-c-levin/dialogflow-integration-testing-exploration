@@ -8,6 +8,7 @@ Exploring the possibility of automated integration testing on Dialogflow using C
 ## Todo Integration testing
 
 * Take current agent and restore to a testing agent
+    * Not possible with v1 api
 * ~~Run integration tests on the testing agent~~
 
 

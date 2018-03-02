@@ -7,7 +7,7 @@
     "start": "nodemon --inspect=5858 dist/index.js",
     "ngrok": "ngrok.exe http 5000",
     "test": "mocha dist/**/*.test.js --recursive",
-    "integration-test": "mocha dist/**/*.e2e.js --recursive",
+    "integration-test": "mocha dist/**/*.e2e.js --recursive --timeout 10000",
     "wait-for-heroku": "node dist/e2e/wait_for_heroku.js"
   },
   "repository": {

@@ -16,7 +16,7 @@ function begin() {
     setTimeout(() => {
         console.log('Begining to ping');
         waitForHeroku();
-    }, 10000);
+    }, 30000);
 }
 function waitForHeroku() {
     return __awaiter(this, void 0, void 0, function* () {
