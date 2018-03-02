@@ -2,6 +2,14 @@ import { get } from 'superagent';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
+function begin() {
+    console.log('Giving heroku time to deploy');
+    setTimeout(() => {
+        console.log('Begining to ping');
+        waitForHeroku();
+    });
+}
+
 async function waitForHeroku() {
     try {
         const response = await pingAlive();
@@ -28,4 +36,4 @@ function pingAlive() {
     });
 }
 
-waitForHeroku();
+begin();

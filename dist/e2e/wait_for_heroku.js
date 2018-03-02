@@ -11,6 +11,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const superagent_1 = require("superagent");
 const dotenv = require("dotenv");
 dotenv.config();
+function begin() {
+    console.log('Giving heroku time to deploy');
+    setTimeout(() => {
+        console.log('Begining to ping');
+        waitForHeroku();
+    });
+}
 function waitForHeroku() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -38,5 +45,5 @@ function pingAlive() {
         });
     });
 }
-waitForHeroku();
+begin();
 //# sourceMappingURL=wait_for_heroku.js.map

@@ -10,7 +10,7 @@ app.post('/', function (request, response) {
     handers_1.dialogApp(request, response);
 });
 app.get('/alive', function (_, response) {
-    response.send("alive");
+    response.send("I'm alive");
 });
 app.listen(app.get('port'), function () {
     console.log('Node app is running on port', app.get('port'));
