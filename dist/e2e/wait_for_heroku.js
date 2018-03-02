@@ -15,7 +15,7 @@ function waitForHeroku() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const response = yield pingAlive();
-            console.log(`Heroku responded: ${response}`);
+            console.log(`Heroku responded: ${JSON.stringify(response)}`);
         }
         catch (e) {
             console.log(`Failed to ping: ${e}, retrying in 5 seconds`);
@@ -27,7 +27,9 @@ function waitForHeroku() {
 }
 function pingAlive() {
     return new Promise((resolve, reject) => {
-        superagent_1.get(`${process.env.HEROKU_URL}/alive`)
+        const url = `${process.env.HEROKU_URL}/alive`;
+        console.log(`pinging ${url}`);
+        superagent_1.get(url)
             .end((err, res) => {
             if (err) {
                 reject(err);

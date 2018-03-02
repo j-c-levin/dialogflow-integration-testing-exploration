@@ -5,7 +5,7 @@ dotenv.config();
 async function waitForHeroku() {
     try {
         const response = await pingAlive();
-        console.log(`Heroku responded: ${response}`);
+        console.log(`Heroku responded: ${JSON.stringify(response)}`);
     } catch (e) {
         console.log(`Failed to ping: ${e}, retrying in 5 seconds`);
         setTimeout(() => {
@@ -16,7 +16,9 @@ async function waitForHeroku() {
 
 function pingAlive() {
     return new Promise((resolve, reject) => {
-        get(`${process.env.HEROKU_URL}/alive`)
+        const url = `${process.env.HEROKU_URL}/alive`;
+        console.log(`pinging ${url}`);
+        get(url)
             .end((err, res) => {
                 if (err) {
                     reject(err);
